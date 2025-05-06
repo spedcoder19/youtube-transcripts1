@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Transcript Extractor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>YouTube Transcript Extractor</h1>
+        
+        <div class="input-section">
+            <label for="youtube-url">YouTube Video or Playlist URL:</label>
+            <input type="text" id="youtube-url" placeholder="https://www.youtube.com/watch?v=... or https://www.youtube.com/playlist?list=...">
+            <button id="fetch-btn">Get Transcript</button>
+        </div>
+        
+        <div class="options-section">
+            <div class="format-options">
+                <label>Output Format:</label>
+                <select id="format-select">
+                    <option value="txt">Plain Text (TXT)</option>
+                    <option value="vtt">WebVTT (VTT)</option>
+                    <option value="srt">SubRip (SRT)</option>
+                    <option value="json">JSON</option>
+                </select>
+            </div>
+            
+            <div class="mode-options">
+                <label>Processing Mode:</label>
+                <select id="mode-select">
+                    <option value="single">Single Video</option>
+                    <option value="playlist">Entire Playlist</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="transcript-container">
+            <label for="transcript-output">Transcript:</label>
+            <textarea id="transcript-output" readonly></textarea>
+            <div class="action-buttons">
+                <button id="download-btn" disabled>Download Transcript</button>
+                <button id="copy-btn" disabled>Copy to Clipboard</button>
+                <button id="save-all-btn" disabled style="display: none;">Save All Playlist Transcripts</button>
+            </div>
+        </div>
+        
+        <div class="progress-container" id="progress-container" style="display: none;">
+            <div class="progress-bar">
+                <div class="progress" id="progress-bar"></div>
+            </div>
+            <div class="progress-text" id="progress-text">Processing: 0/0</div>
+        </div>
+        
+        <div class="status" id="status-message"></div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</body>
+</html>
